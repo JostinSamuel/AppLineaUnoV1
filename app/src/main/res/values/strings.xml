@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Linea 1</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Cerrar sesión</string>
+    <string name="text_new_user"><u>Eres nuevo? Regístrate aquí!</u></string>
+    <string name="iniciar_sesi_n">Iniciar sesión</string>
+    <string name="menu_inicio">Inicio</string>
+    <string name="menu_movimientos">Movimientos</string>
+    <string name="menu_perfil">Mi perfil</string>
+    <string name="cancelar"><u>Cancelar</u></string>
+    <string-array name="tipoDoc">
+        <item>DNI</item>
+    </string-array>
+</resources>

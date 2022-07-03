@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.PerfilActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/linear_atras"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/btnAtras"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    app:srcCompat="@drawable/ic_baseline_arrow_back_24"
+                    app:tint="#090808"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/linear_atras">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="monospace"
+                    android:layout_gravity="center"
+                    android:text="MI PERFIL"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textSize="34sp"
+                    android:textStyle="bold"
+                    android:typeface="monospace"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_foto_perfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/linear_titulo">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="122dp"
+                    android:layout_height="126dp"
+                    android:layout_gravity="center"
+                    android:elevation="5dp"
+                    app:civ_border_color="#FF000000"
+                    app:civ_border_width="2dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_informacion_perfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@+id/linear_foto_perfil">
+
+                <TextView
+                    android:id="@+id/tvdniperfil"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#F5F5F5"
+                    android:fontFamily="monospace"
+                    android:paddingTop="10dp"
+                    android:singleLine="false"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textSize="16dp"
+                    android:typeface="monospace"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvnombresdni"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#F5F5F5"
+                    android:fontFamily="monospace"
+                    android:paddingTop="10dp"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textSize="16dp"
+                    android:typeface="monospace"
+                    app:layout_constraintEnd_toEndOf="@+id/tvdniperfil"
+                    app:layout_constraintStart_toStartOf="@+id/tvdniperfil"
+                    app:layout_constraintTop_toBottomOf="@+id/tvdniperfil" />
+
+                <TextView
+                    android:id="@+id/tvapellidosdni"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#F5F5F5"
+                    android:fontFamily="monospace"
+                    android:paddingTop="10dp"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textSize="16dp"
+                    android:typeface="monospace"
+                    app:layout_constraintEnd_toEndOf="@+id/tvnombresdni"
+                    app:layout_constraintStart_toStartOf="@+id/tvnombresdni"
+                    app:layout_constraintTop_toBottomOf="@+id/tvnombresdni" />
+
+                <TextView
+                    android:id="@+id/tvemaildni"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#F5F5F5"
+                    android:fontFamily="monospace"
+                    android:paddingTop="10dp"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textSize="16dp"
+                    android:typeface="monospace"
+                    app:layout_constraintBottom_toTopOf="@+id/sign_out_button"
+                    app:layout_constraintEnd_toEndOf="@+id/tvapellidosdni"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/tvapellidosdni"
+                    app:layout_constraintTop_toBottomOf="@+id/tvapellidosdni" />
+
+                <Button
+                    android:id="@+id/sign_out_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginRight="30dp"
+                    android:text="CERRAR SESIÓN"
+                    app:layout_constraintEnd_toEndOf="@+id/tvemaildni"
+                    app:layout_constraintStart_toStartOf="@+id/tvemaildni"
+                    app:layout_constraintTop_toBottomOf="@+id/tvemaildni" />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

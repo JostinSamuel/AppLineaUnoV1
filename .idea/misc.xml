@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/drawable-v21/background_ok.xml" value="0.243" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/drawable-v21/background_warning.xml" value="0.243" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/drawable-v21/bg_overlay.xml" value="0.243" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/drawable-v21/border.xml" value="0.243" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/drawable-v21/border_error.xml" value="0.243" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/drawable-v21/ic_baseline_arrow_back_24.xml" value="0.243" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/drawable-v21/ic_check.xml" value="0.1" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/drawable-v21/ic_close.xml" value="0.1805" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/drawable-v21/ic_home.xml" value="0.2535" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/drawable-v21/ic_launcher_foreground.xml" value="0.101" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/drawable-v21/ic_lock.xml" value="0.2535" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/drawable-v21/ic_login.xml" value="0.2535" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/drawable-v21/ic_more.xml" value="0.2535" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/drawable-v21/ic_salir.xml" value="0.2535" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/drawable-v21/ic_volver_atras.xml" value="0.1" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/drawable-v21/recyclerview_bg.xml" value="0.243" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/drawable-v21/recyclerview_bg_button.xml" value="0.243" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/layout/activity_inicio.xml" value="0.2609375" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/layout/activity_main.xml" value="0.2609375" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/layout/activity_perfil.xml" value="0.2609375" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/layout/activity_registro.xml" value="0.33" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/layout/activity_splash.xml" value="0.1578125" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/layout/app_bar_inicio.xml" value="0.25" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/layout/app_bar_main.xml" value="0.1" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/layout/content_inicio.xml" value="0.18" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/layout/content_main.xml" value="0.39947916666666666" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/layout/dropdown_item.xml" value="0.1" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/layout/fragment_home.xml" value="0.15677083333333333" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/layout/nav_header_inicio.xml" value="0.2609375" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/layout/nav_header_main.xml" value="0.15677083333333333" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/layout/toast_ok.xml" value="0.1" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/layout/toast_warning.xml" value="0.20052083333333334" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/menu/activity_main_drawer.xml" value="0.39947916666666666" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/menu/inicio.xml" value="0.1" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/menu/main.xml" value="0.2609375" />
+        <entry key="..\:/AndroidProjects/tesis/AppLineaV1/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.101" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

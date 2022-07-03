@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.MainActivity">
+    <LinearLayout
+        android:id="@+id/linearParte1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="254dp">
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="139dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="55dp"
+                android:src="@drawable/linea1_logo" />
+        </FrameLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/linearParte2"
+        android:layout_below="@+id/linearParte1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/san_francisco"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:gravity="center|center_horizontal"
+            android:text="Bienvenido a la App de la Linea 1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearParte3"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearParte2"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInputUsuario"
+            style="@style/Widget.Design.TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese su correo electrónico"
+            app:startIconDrawable="@drawable/ic_email">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtMail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:inputType="textEmailAddress"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInputPassword"
+            style="@style/Widget.Design.TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese su contraseña"
+            app:passwordToggleEnabled="true"
+            app:startIconDrawable="@drawable/ic_lock">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:inputType="textPassword"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearParte4"
+        android:layout_below="@+id/linearParte3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp">
+
+        <Button
+            android:id="@+id/btnIniciarSesion"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_login"
+            android:drawableTint="#fff"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/iniciar_sesi_n" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/linearParte5"
+        android:layout_below="@+id/linearParte4"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtNuevoUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/san_francisco"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="center|center_horizontal"
+            android:text="@string/text_new_user"/>
+    </LinearLayout>
+</RelativeLayout>
