@@ -111,8 +111,11 @@ public class MainActivity extends AppCompatActivity {
                                     .registerTypeAdapter(Time.class, new TimeSerializer())
                                     .create();
                             editor.putString("UsuarioJson", g.toJson(u, new TypeToken<Usuario>() {}.getType()));
-                            //editor.putString("emailtoInicio", u.getEmail());
+                            editor.putString("emailCliente", edtEmail.getText().toString());
                             editor.putString("nombretoInicio", u.getCliente().getNombreCompleto());
+                            editor.putString("dniCliente",u.getCliente().getNumero_documento());
+                            editor.putString("nombresCliente",u.getCliente().getNombres());
+                            editor.putString("apellidosCliente",u.getCliente().getApellidoPaterno()+" "+u.getCliente().getApellidoMaterno());
                             editor.apply();
                             edtEmail.setText("");
                             edtClave.setText("");

@@ -7,19 +7,20 @@
 
     <fragment
         android:id="@+id/nav_inicio"
-        android:name="com.linea.uno.applineav1.ui.home.HomeFragment"
+        android:name="com.linea.uno.applineav1.activities.ui.Inicio.HomeFragment"
         android:label="@string/menu_inicio"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_movimientos"
-        android:name="com.linea.uno.applineav1.ui.gallery.GalleryFragment"
+        android:name="com.linea.uno.applineav1.activities.ui.Movimientos.GalleryFragment"
         android:label="@string/menu_movimientos"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_perfil"
-        android:name="com.linea.uno.applineav1.ui.slideshow.SlideshowFragment"
+        android:name="com.linea.uno.applineav1.activities.ui.Perfil.MiPerfilFragment"
         android:label="@string/menu_perfil"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_perfil" />
+
 </navigation>

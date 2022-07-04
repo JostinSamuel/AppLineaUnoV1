@@ -1,4 +1,4 @@
-package com.linea.uno.applineav1.ui.home;
+package com.linea.uno.applineav1.activities.ui.Inicio;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

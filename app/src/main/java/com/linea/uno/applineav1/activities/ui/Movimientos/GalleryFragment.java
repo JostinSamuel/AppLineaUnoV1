@@ -1,4 +1,4 @@
-package com.linea.uno.applineav1.ui.gallery;
+package com.linea.uno.applineav1.activities.ui.Movimientos;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

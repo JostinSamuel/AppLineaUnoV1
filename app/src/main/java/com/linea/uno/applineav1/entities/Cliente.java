@@ -9,6 +9,8 @@ public class Cliente {
     private String tipo_documento;
     private String numero_documento;
 
+    private String foto;
+
     /*private Tarjeta tarjeta;*/
 
     public Cliente() {
@@ -69,6 +71,14 @@ public class Cliente {
     public String getNombreCompleto(){
         return this.nombres != null && this.apellidoPaterno != null && this.apellidoMaterno != null ?
                 this.nombres + " " + this.apellidoPaterno + " " + this.apellidoMaterno : "Error al mostrar nombre del usuario";
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 }
 
