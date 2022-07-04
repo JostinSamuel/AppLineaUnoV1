@@ -42,11 +42,13 @@ public class MiPerfilFragment extends Fragment {
     private static final int File = 1 ;
     DatabaseReference myRef;
 
-    //Cliente cliente = new Cliente();
+    Cliente cliente = new Cliente();
 
-    @SuppressLint("NonConstantResourceId")
+    /*@SuppressLint("NonConstantResourceId")
     @BindView(R.id.profile_image)
-    CircleImageView mUploadImageView;
+    CircleImageView mUploadImageView;*/
+    //ImageView mUploadImageView;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_perfil, container, false);
@@ -58,12 +60,12 @@ public class MiPerfilFragment extends Fragment {
         inicializar(view);
         cargarDatos();
 
-        ButterKnife.bind(getActivity());
+        /*ButterKnife.bind(getActivity());*/
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        /*FirebaseDatabase database = FirebaseDatabase.getInstance();
         myRef= database.getReference("user1");
 
-        mUploadImageView.setOnClickListener(v -> fileUpload());
+        mUploadImageView.setOnClickListener(v -> fileUpload());*/
 
     }
 
@@ -82,7 +84,7 @@ public class MiPerfilFragment extends Fragment {
         tvapellidosdni = view.findViewById(R.id.tvapellidosdni);
         tvnombresdni = view.findViewById(R.id.tvnombresdni);
         sign_out_button = view.findViewById(R.id.sign_out_button);
-        mUploadImageView = view.findViewById(R.id.profile_image);
+        //mUploadImageView = view.findViewById(R.id.profile_image);
 
         //cerrar sesión
         sign_out_button.setOnClickListener(v->{cerrarSesion();});
@@ -127,8 +129,8 @@ public class MiPerfilFragment extends Fragment {
         getActivity().overridePendingTransition(R.anim.left_in, R.anim.left_out);
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    //@Override
+    /*public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if(requestCode == File){
@@ -137,9 +139,9 @@ public class MiPerfilFragment extends Fragment {
 
                 Uri fileUri = data.getData();
 
-                //cliente.setFoto(fileUri.toString());
+                cliente.setFoto(fileUri);
 
-                mUploadImageView.setImageURI(fileUri);
+                mUploadImageView.setImageURI(cliente.getFoto());
 
                 StorageReference Folder = FirebaseStorage.getInstance().getReference().child("User");
 
@@ -160,6 +162,6 @@ public class MiPerfilFragment extends Fragment {
 
         }
 
-    }
+    }*/
 
 }

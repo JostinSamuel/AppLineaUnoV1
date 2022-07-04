@@ -1,5 +1,7 @@
 package com.linea.uno.applineav1.entities;
 
+import android.net.Uri;
+
 public class Cliente {
 
     private int id;
@@ -9,7 +11,7 @@ public class Cliente {
     private String tipo_documento;
     private String numero_documento;
 
-    private String foto;
+    private Uri foto;
 
     /*private Tarjeta tarjeta;*/
 
@@ -73,11 +75,11 @@ public class Cliente {
                 this.nombres + " " + this.apellidoPaterno + " " + this.apellidoMaterno : "Error al mostrar nombre del usuario";
     }
 
-    public String getFoto() {
+    public Uri getFoto() {
         return foto;
     }
 
-    public void setFoto(String foto) {
+    public void setFoto(Uri foto) {
         this.foto = foto;
     }
 }

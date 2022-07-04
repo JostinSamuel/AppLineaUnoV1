@@ -19,25 +19,25 @@
                 android:id="@+id/linear_foto_perfil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/profile_image"
-                    android:layout_width="122dp"
-                    android:layout_height="126dp"
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/animationView"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
                     android:layout_gravity="center"
-                    android:elevation="5dp"
-                    app:civ_border_color="#FF000000"
-                    app:civ_border_width="2dp"/>
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="false"
+                    app:lottie_rawRes="@raw/user_profile" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linear_informacion_perfil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_below="@+id/linear_foto_perfil">
+                android:layout_below="@+id/linear_foto_perfil"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/tvdniperfil"

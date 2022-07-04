@@ -81,5 +81,7 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
     //Bind Android views and callbacks to fields and methods
     implementation 'com.jakewharton:butterknife:10.0.0'
+    //Lottie
+    implementation 'com.airbnb.android:lottie:3.7.0'
 
 }
