@@ -1,7 +1,11 @@
 package com.linea.uno.applineav1.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.SharedPreferences;
 import android.os.Bundle;
+
+import com.google.gson.reflect.TypeToken;
 import com.linea.uno.applineav1.R;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +22,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -56,11 +61,16 @@ public class RegistroActivity extends AppCompatActivity {
 
     private ClienteViewModel clienteViewModel;
     private UsuarioViewModel usuarioViewModel;
-    private Button btnGuardarDatos;
+    private Button btnGuardarDatos, btnCancelar ;
     private AutoCompleteTextView dropdownTipoDoc;
     private EditText edtNameUser, edtApellidoPaternoU, edtApellidoMaternoU, edtNumDocU, edtPasswordUser, edtEmailUser;
     private TextInputLayout txtInputNameUser, txtInputApellidoPaternoU, txtInputApellidoMaternoU, txtInputTipoDoc, txtInputNumeroDocU, txtInputEmailUser, txtInputPasswordUser;
     private ProgressDialog progressDialog;
+
+    /*SharedPreferences*/
+    SharedPreferences preferences ;
+    SharedPreferences.Editor editor ;
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -100,6 +110,7 @@ public class RegistroActivity extends AppCompatActivity {
         edtNumDocU = findViewById(R.id.edtNumDocU);
         edtPasswordUser = findViewById(R.id.edtPasswordUser);
         edtEmailUser = findViewById(R.id.edtEmailUser);
+        btnCancelar = findViewById(R.id.btnCancelar);
 
         //AutoCompleteTextView
         dropdownTipoDoc = findViewById(R.id.dropdownTipoDoc);
@@ -114,10 +125,15 @@ public class RegistroActivity extends AppCompatActivity {
         txtInputPasswordUser = findViewById(R.id.txtInputPasswordUser);
 
         btnGuardarDatos.setOnClickListener(v -> { this.guardarDatos(); });
+        btnCancelar.setOnClickListener(v-> { this.cancelar();});
 
         edtNameUser.setEnabled(false);
         edtApellidoMaternoU.setEnabled(false);
         edtApellidoPaternoU.setEnabled(false);
+
+        /* inicializando SharedPreferences*/
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = preferences.edit();
 
         edtNumDocU.addTextChangedListener(new TextWatcher() {
             @Override
@@ -145,6 +161,20 @@ public class RegistroActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) { }
         });
+    }
+
+    private void cancelar() {
+        dropdownTipoDoc.setText("");
+        edtNumDocU.setText("");
+        edtNameUser.setText("");
+        edtApellidoPaternoU.setText("");
+        edtApellidoMaternoU.setText("");
+        edtEmailUser.setText("");
+        edtPasswordUser.setText("");
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        //cargar animación
+        overridePendingTransition(R.anim.left_in, R.anim.left_out);
     }
 
     public void IniciasDialog (){
@@ -213,8 +243,10 @@ public class RegistroActivity extends AppCompatActivity {
 
                         this.usuarioViewModel.guardar(u).observe(this, uResponse -> {
                             if (uResponse.getRpta() == 1) {
-                                successMessage("Información guardada exitosamente.");
-                                startActivity(new Intent(this,InicioActivity.class));
+                                ToastOk("Información guardada exitosamente");
+                                startActivity(new Intent(this,MainActivity.class));
+                                //cargar animación
+                                overridePendingTransition(R.anim.left_in, R.anim.left_out);
                             } else {
                                 toastIncorrecto("Error al guardar los datos, inténtelo de nuevo");
                             }
@@ -299,15 +331,15 @@ public class RegistroActivity extends AppCompatActivity {
                 SweetAlertDialog.WARNING_TYPE).setTitleText("Notificación del Sistema").setContentText(message).setConfirmText("Ok").show();
     }
 
-    public void successMessage(String message) {
-        new SweetAlertDialog(this,
-                SweetAlertDialog.SUCCESS_TYPE).setTitleText("Buen Trabajo!")
-                .setContentText(message).setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                    @Override
-                    public void onClick(SweetAlertDialog sweetAlertDialog) {
-                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                    }
-                }).show();
+    public void ToastOk(String msj) {
+        LayoutInflater layoutInflater = getLayoutInflater();
+        View view = layoutInflater.inflate(R.layout.toast_ok, findViewById(R.id.linear_toast_ok));
+        TextView txtMsj = view.findViewById(R.id.txtMsjOk);
+        txtMsj.setText(msj);
+        Toast toast = new Toast(getApplicationContext());
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setView(view);
+        toast.show();
     }
 
     public void toastIncorrecto(String msg) {

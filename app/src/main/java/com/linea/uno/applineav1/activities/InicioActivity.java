@@ -86,7 +86,8 @@ public class InicioActivity extends AppCompatActivity {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = preferences.edit();
         editor.remove("UsuarioJson");
-        editor.remove("email");
+        editor.remove("nombretoInicio");
+        //editor.remove("email");
         //editor.remove("cardToken");
         editor.apply();
         this.finish();
@@ -103,22 +104,29 @@ public class InicioActivity extends AppCompatActivity {
     private void cargarDatos() {
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor ;
+        editor = sharedPreferences.edit();
+
         final Gson gson = new GsonBuilder()
                 .registerTypeAdapter(Date.class, new DateSerializer())
                 .registerTypeAdapter(Time.class, new TimeSerializer())
                 .create();
 
         String usuario = sharedPreferences.getString("UsuarioJson", null);
+        System.out.println("usuarioGson: "+usuario);
+        //String emailToInicio = sharedPreferences.getString("emailToInicio","email");
+        String nombreToInicio = sharedPreferences.getString("nombretoInicio","nombre");
+        //editor.apply();
 
-        if (usuario != null) {
-            final Usuario u = gson.fromJson(usuario, Usuario.class);
+        //if (usuario != null) {
+            //final Usuario u = gson.fromJson(usuario, Usuario.class);
             final View vista = binding.navView.getHeaderView(0);
             final TextView txtUserName = vista.findViewById(R.id.txtUserName);
-            final TextView txtUserEmail = vista.findViewById(R.id.txtUserEmail);
+            //final TextView txtUserEmail = vista.findViewById(R.id.txtUserEmail);
             //final CircleImageView imageViewPerfil = vista.findViewById(R.id.imageViewPerfil);
-            txtUserName.setText(u.getCliente().getNombreCompleto());
-            txtUserEmail.setText(u.getEmail());
-            System.out.println(usuario);
+            txtUserName.setText(nombreToInicio);
+            //txtUserEmail.setText(emailToInicio);
+            //System.out.println(usuario);
             //email para la tarjeta CardActivity
             //SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
             //SharedPreferences.Editor editor=preferences.edit();
@@ -137,6 +145,6 @@ public class InicioActivity extends AppCompatActivity {
                 Picasso.get().load(url).into(imageViewPerfil);
             }
             */
-        }
+        //}
     }
 }

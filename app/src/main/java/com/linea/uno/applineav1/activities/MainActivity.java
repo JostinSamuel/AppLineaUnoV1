@@ -1,6 +1,7 @@
 package com.linea.uno.applineav1.activities;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import com.google.android.material.snackbar.Snackbar;
@@ -104,13 +105,14 @@ public class MainActivity extends AppCompatActivity {
                         if (response.getRpta()==1) {
                             ToastOk(response.getMessage());
                             Usuario u = response.getBody();
-
+                            Log.e("Usuario Main Activity: ",u.toString());
                             final Gson g = new GsonBuilder()
                                     .registerTypeAdapter(Date.class, new DateSerializer())
                                     .registerTypeAdapter(Time.class, new TimeSerializer())
                                     .create();
                             editor.putString("UsuarioJson", g.toJson(u, new TypeToken<Usuario>() {}.getType()));
-
+                            //editor.putString("emailtoInicio", u.getEmail());
+                            editor.putString("nombretoInicio", u.getCliente().getNombreCompleto());
                             editor.apply();
                             edtEmail.setText("");
                             edtClave.setText("");
