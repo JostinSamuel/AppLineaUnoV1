@@ -1,0 +1,41 @@
+[
+  {
+    "id_cliente": 1,
+    "id_tarjeta": 1,
+    "tipo_tarjeta": {
+      "id_tipo_tarjeta": 1,
+      "descripcion": "Adulto"
+    },
+    "codigo": "12345612",
+    "saldo": 100.0,
+    "anio_compra": "2020",
+    "anio_vencimiento": "2030",
+    "estado": true
+  },
+  {
+    "id_cliente": 2,
+    "id_tarjeta": 2,
+    "tipo_tarjeta": {
+      "id_tipo_tarjeta": 2,
+      "descripcion": "Universitario"
+    },
+    "codigo": "32456778",
+    "saldo": 100.0,
+    "anio_compra": "2020",
+    "anio_vencimiento": "2030",
+    "estado": true
+  },
+  {
+    "id_cliente": 3,
+    "id_tarjeta": 3,
+    "tipo_tarjeta": {
+      "id_tipo_tarjeta": 1,
+      "descripcion": "Adulto"
+    },
+    "codigo": "90123467",
+    "saldo": 100.0,
+    "anio_compra": "2020",
+    "anio_vencimiento": "2030",
+    "estado": true
+  }
+]
