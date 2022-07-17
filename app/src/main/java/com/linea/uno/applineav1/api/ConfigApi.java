@@ -22,6 +22,7 @@ public class ConfigApi {
 
     private static UsuarioApi usuarioApi;
     private static ClienteApi clienteApi;
+    private static MovimientoApi movimientoApi;
 
     static {
         initClient();
@@ -76,5 +77,13 @@ public class ConfigApi {
         }
 
         return clienteApi;
+    }
+
+    public static MovimientoApi getMovimientoApi() {
+        if (movimientoApi == null) {
+            movimientoApi = retrofit.create(MovimientoApi.class);
+        }
+
+        return movimientoApi;
     }
 }

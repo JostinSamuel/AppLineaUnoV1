@@ -8,33 +8,58 @@
     tools:context=".activities.ui.Inicio.HomeFragment">
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_margin="10dp"
-                android:background="#A22F2F"
-                app:cardCornerRadius="10dp">
+                app:cardCornerRadius="15dp"
+                app:cardElevation="10dp">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <LinearLayout
                         android:id="@+id/linearLayout1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:orientation="horizontal">
+
                         <LinearLayout
                             android:id="@+id/layoutTipoCard"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="#4CAF50"
                             android:orientation="vertical"
                             android:padding="5dp">
+
+                            <TextView
+                                android:id="@+id/tvMetroLima"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/san_francisco"
+                                android:text="Metro de Lima"
+                                android:textAlignment="textStart"
+                                android:textColor="@color/green_200"
+                                android:textSize="40sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvSaldoDisponible"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/san_francisco"
+                                android:text="20.00"
+                                android:textAlignment="center"
+                                android:textColor="#646C6D"
+                                android:textSize="50sp" />
 
                             <TextView
                                 android:id="@+id/tvTypeCard"
@@ -43,12 +68,11 @@
                                 android:fontFamily="@font/san_francisco"
                                 android:text="Adulto"
                                 android:textAlignment="textEnd"
-                                android:textSize="20sp"/>
+                                android:textColor="@color/black"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
                         </LinearLayout>
-
                     </LinearLayout>
-
-
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
@@ -58,23 +82,22 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/san_francisco"
-                android:text="Últimos movimientos"
-                android:textColor="#000"
+                android:textStyle="bold"
+                android:text="@string/ultimos_movimientos"
+                android:textColor="#F44336"
                 android:textSize="24sp" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvProductosRecomendados"
+                    android:id="@+id/rvHistorialMovimientos"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentBottom="true"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp" />
-            </RelativeLayout>
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/black"/>
         </LinearLayout>
+
     </ScrollView>
+
+
 </LinearLayout>
