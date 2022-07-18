@@ -3,10 +3,13 @@ package com.linea.uno.applineav1.activities.ui.Inicio;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -27,8 +30,11 @@ public class HomeFragment extends Fragment {
     private List<Movimiento> listaMovimientos= new ArrayList<>();
     private MovimientoAdapter movimientoAdapter;
     private MovimientoViewModel movimientoViewModel;
+    SharedPreferences pref;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        pref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+
         return inflater.inflate(R.layout.fragment_home,container,false);
     }
 
@@ -50,10 +56,9 @@ public class HomeFragment extends Fragment {
 
     private void cargarDatos() {
         //lista de productos
-        SharedPreferences pref = getActivity().getSharedPreferences("FragmentHome", Context.MODE_PRIVATE);
-        String email = pref.getString("emailCliente","errodecargaEmail");
-        Log.e("EmailURLApi {}",email);
-        movimientoViewModel.getLastFiveMovements("jostin@gmail.com").observe(getViewLifecycleOwner(),response->{
+        String email = pref.getString("emailCliente",null);
+        Log.e("email home: ",email);
+        movimientoViewModel.getLastFiveMovements(email).observe(getViewLifecycleOwner(),response->{
             movimientoAdapter.updateItemsMovimientos(response.getBody());
             Log.e("response.getBody {}",response.getBody().toString());
         });

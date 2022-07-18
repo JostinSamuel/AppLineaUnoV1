@@ -1,10 +1,12 @@
 package com.linea.uno.applineav1.entities;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 
 public class Movimiento {
     private Integer id_movimiento;
-    private LocalDateTime fecha;
+    private Date fecha;
     private Double monto_total;
     private String email;
     private String token;
@@ -18,11 +20,11 @@ public class Movimiento {
         this.id_movimiento = id_movimiento;
     }
 
-    public LocalDateTime getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalDateTime fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 

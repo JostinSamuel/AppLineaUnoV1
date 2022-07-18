@@ -93,7 +93,7 @@ public class MiPerfilFragment extends Fragment {
     }
 
     public void cargarDatos(){
-        SharedPreferences preferences =PreferenceManager.getDefaultSharedPreferences(getActivity());;
+        SharedPreferences preferences =PreferenceManager.getDefaultSharedPreferences(getActivity());
         String apellidosCliente = preferences.getString("apellidosCliente", null);
         String nombresCliente = preferences.getString("nombresCliente",null);
         String emailCliente = preferences.getString("emailCliente",null);

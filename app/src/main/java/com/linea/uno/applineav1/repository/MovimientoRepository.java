@@ -1,5 +1,7 @@
 package com.linea.uno.applineav1.repository;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import com.linea.uno.applineav1.api.ConfigApi;
@@ -30,9 +32,11 @@ public class MovimientoRepository {
     public LiveData<GenericResponse<List<Movimiento>>> getLastFiveMovements(String email) {
         final MutableLiveData<GenericResponse<List<Movimiento>>> mld = new MutableLiveData<>();
         this.movimientoApi.getLastFiveMovements(email).enqueue(new Callback<GenericResponse<List<Movimiento>>>() {
+
             @Override
             public void onResponse(Call<GenericResponse<List<Movimiento>>> call, Response<GenericResponse<List<Movimiento>>> response) {
                 mld.setValue(response.body());
+                Log.e("valorResponse",response.body().toString());
             }
 
             @Override
@@ -42,5 +46,5 @@ public class MovimientoRepository {
         });
         return mld;
     }
-    
+
 }
