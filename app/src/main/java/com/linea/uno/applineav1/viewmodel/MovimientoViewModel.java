@@ -6,6 +6,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.linea.uno.applineav1.entities.Movimiento;
+import com.linea.uno.applineav1.entities.dto.GenerarMovimientoDTO;
 import com.linea.uno.applineav1.repository.MovimientoRepository;
 import com.linea.uno.applineav1.utils.GenericResponse;
 
@@ -23,5 +24,9 @@ public class MovimientoViewModel extends AndroidViewModel {
 
     public LiveData<GenericResponse<List<Movimiento>>> getLastFiveMovements(String email){
         return this.repository.getLastFiveMovements(email);
+    }
+
+    public LiveData<GenericResponse<GenerarMovimientoDTO>> recargarSaldo(GenerarMovimientoDTO dto){
+        return repository.save(dto);
     }
 }

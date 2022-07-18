@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.CardActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/green_500"
+                app:navigationIcon="@drawable/ic_volver_atras"
+                app:title="Registrar tarjeta"
+                app:titleTextColor="@color/white" />
+        </com.google.android.material.appbar.AppBarLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="406dp"
+                android:layout_height="292dp"
+                android:contentDescription="TODO"
+                android:src="@drawable/card"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="57dp" />
+
+            <EditText
+                android:id="@+id/txt_cardnumber"
+                android:layout_width="379dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/border"
+                android:ems="10"
+                android:hint="Card Number"
+                android:inputType="number"
+                android:maxLength="16"
+                android:selectAllOnFocus="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+
+            <EditText
+                android:id="@+id/txt_month"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/txt_cardnumber"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/border"
+                android:ems="10"
+                android:hint="Mes"
+                android:inputType="number"
+                android:maxLength="2"
+                app:layout_constraintEnd_toStartOf="@+id/txt_year"
+                app:layout_constraintHorizontal_bias="0.444"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_cardnumber" />
+
+            <EditText
+                android:id="@+id/txt_year"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:layout_row="4"
+                android:layout_column="1"
+                android:layout_alignBaseline="@+id/txt_month"
+                android:layout_alignBottom="@+id/txt_month"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="16dp"
+                android:layout_toEndOf="@+id/txt_month"
+                android:background="@drawable/border"
+                android:ems="10"
+                android:hint="Año"
+                android:inputType="number"
+                android:maxLength="2"
+                app:layout_constraintEnd_toStartOf="@+id/txt_cvv"
+                app:layout_constraintTop_toBottomOf="@+id/txt_cardnumber" />
+
+            <EditText
+                android:id="@+id/txt_cvv"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_alignBottom="@+id/txt_year"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="16dp"
+                android:layout_toEndOf="@+id/txt_year"
+                android:background="@drawable/border"
+                android:ems="10"
+                android:hint="CVV"
+                android:inputType="number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_cardnumber" />
+
+            <EditText
+                android:id="@+id/txt_email"
+                android:layout_width="376dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/border"
+                android:ems="10"
+                android:hint="Correo electronico"
+                android:inputType="textEmailAddress"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.542"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_year" />
+
+            <Button
+                android:id="@+id/btn_pay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Siguiente"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_email" />
+
+            <TextView
+                android:id="@+id/kind_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_pay"
+                android:textSize="18sp"
+                android:visibility="invisible"
+                app:layout_constraintTop_toBottomOf="parent" />
+
+            <TextView
+                android:id="@+id/token_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/kind_card"
+                android:textSize="18sp"
+                android:visibility="invisible"
+                app:layout_constraintTop_toBottomOf="@+id/kind_card" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+
+
+</RelativeLayout>

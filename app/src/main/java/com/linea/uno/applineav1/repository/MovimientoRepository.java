@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.linea.uno.applineav1.api.ConfigApi;
 import com.linea.uno.applineav1.api.MovimientoApi;
 import com.linea.uno.applineav1.entities.Movimiento;
+import com.linea.uno.applineav1.entities.dto.GenerarMovimientoDTO;
 import com.linea.uno.applineav1.utils.GenericResponse;
 import java.util.List;
 import retrofit2.Call;
@@ -45,6 +46,26 @@ public class MovimientoRepository {
             }
         });
         return mld;
+    }
+
+    //GUARDAR PEDIDO CON DETALLES
+    public LiveData<GenericResponse<GenerarMovimientoDTO>> save(GenerarMovimientoDTO dto) {
+        MutableLiveData<GenericResponse<GenerarMovimientoDTO>> data = new MutableLiveData<>();
+        movimientoApi.recargarSaldo(dto).enqueue(new Callback<GenericResponse<GenerarMovimientoDTO>>() {
+            @Override
+            public void onResponse(Call<GenericResponse<GenerarMovimientoDTO>> call, Response<GenericResponse<GenerarMovimientoDTO>> response) {
+                if (response.isSuccessful()) {
+                    data.setValue(response.body());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<GenericResponse<GenerarMovimientoDTO>> call, Throwable t) {
+                data.setValue(new GenericResponse<>());
+                t.printStackTrace();
+            }
+        });
+        return data;
     }
 
 }

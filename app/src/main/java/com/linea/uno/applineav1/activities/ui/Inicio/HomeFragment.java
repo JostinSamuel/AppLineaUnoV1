@@ -1,6 +1,7 @@
 package com.linea.uno.applineav1.activities.ui.Inicio;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,6 +20,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.linea.uno.applineav1.R;
+import com.linea.uno.applineav1.activities.CardActivity;
 import com.linea.uno.applineav1.adapter.MovimientoAdapter;
 import com.linea.uno.applineav1.entities.Movimiento;
 import com.linea.uno.applineav1.viewmodel.MovimientoViewModel;
@@ -30,6 +33,7 @@ public class HomeFragment extends Fragment {
     private List<Movimiento> listaMovimientos= new ArrayList<>();
     private MovimientoAdapter movimientoAdapter;
     private MovimientoViewModel movimientoViewModel;
+    private Button btnRecargarSaldo;
     SharedPreferences pref;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -44,6 +48,14 @@ public class HomeFragment extends Fragment {
         inicializar(view);
         inicializarAdapter();
         cargarDatos();
+
+        btnRecargarSaldo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), CardActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void inicializar(View view) {
@@ -52,6 +64,7 @@ public class HomeFragment extends Fragment {
         rvhistorialMovimientos = view.findViewById(R.id.rvHistorialMovimientos);
         rvhistorialMovimientos.setLayoutManager(gridLayoutManager);
         movimientoViewModel = modelProvider.get(MovimientoViewModel.class);
+        btnRecargarSaldo = view.findViewById(R.id.btnRecargarSaldo);
     }
 
     private void cargarDatos() {
