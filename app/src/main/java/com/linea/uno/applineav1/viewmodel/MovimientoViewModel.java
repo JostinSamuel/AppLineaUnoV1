@@ -29,4 +29,8 @@ public class MovimientoViewModel extends AndroidViewModel {
     public LiveData<GenericResponse<GenerarMovimientoDTO>> recargarSaldo(GenerarMovimientoDTO dto){
         return repository.save(dto);
     }
+
+    public LiveData<Double> getMontoTotal(String email){
+        return this.repository.getMontoTotal(email);
+    }
 }

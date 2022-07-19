@@ -68,4 +68,21 @@ public class MovimientoRepository {
         return data;
     }
 
+    public LiveData<Double> getMontoTotal(String email) {
+        final MutableLiveData<Double> mld = new MutableLiveData<>();
+        this.movimientoApi.getMontoTotal(email).enqueue(new Callback<Double>() {
+            @Override
+            public void onResponse(Call<Double> call, Response<Double> response) {
+                mld.setValue(response.body());
+                Log.e("valorMontototal",response.body().toString());
+            }
+
+            @Override
+            public void onFailure(Call<Double> call, Throwable t) {
+                System.out.println("Error al mostrar monto total: " + t.getMessage());
+            }
+        });
+        return mld;
+    }
+
 }

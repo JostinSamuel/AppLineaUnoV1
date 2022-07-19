@@ -1,7 +1,6 @@
 package com.linea.uno.applineav1.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,13 +15,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.linea.uno.applineav1.R;
 import com.linea.uno.applineav1.entities.Culqi.Card;
 import com.linea.uno.applineav1.entities.Culqi.Token;
 import com.linea.uno.applineav1.entities.Culqi.TokenCallback;
 import com.linea.uno.applineav1.utils.Validation.Validation;
-
 import org.json.JSONObject;
 
 public class CardActivity extends AppCompatActivity {
@@ -64,6 +61,7 @@ public class CardActivity extends AppCompatActivity {
         String email = sp.getString("emailCliente", null);
         System.out.println("Email: --> "+ email);
         txtemail.setText(email);
+        txtemail.setEnabled(false);
 
         txtcardnumber.addTextChangedListener(new TextWatcher() {
             @Override

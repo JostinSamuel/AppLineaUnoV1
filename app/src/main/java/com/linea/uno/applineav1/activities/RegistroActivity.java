@@ -1,29 +1,15 @@
 package com.linea.uno.applineav1.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import com.google.gson.reflect.TypeToken;
 import com.linea.uno.applineav1.R;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
-import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Build;
-import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -42,20 +28,14 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputLayout;
-import com.linea.uno.applineav1.api.ConfigApi;
 import com.linea.uno.applineav1.entities.Cliente;
 import com.linea.uno.applineav1.entities.Usuario;
 import com.linea.uno.applineav1.viewmodel.ClienteViewModel;
 import com.linea.uno.applineav1.viewmodel.UsuarioViewModel;
-
-import org.jetbrains.annotations.NotNull;
 import org.json.JSONException;
 import org.json.JSONObject;
-import java.util.UUID;
 import cn.pedant.SweetAlert.SweetAlertDialog;
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class RegistroActivity extends AppCompatActivity {
 
@@ -89,15 +69,6 @@ public class RegistroActivity extends AppCompatActivity {
         this.clienteViewModel = vmp.get(ClienteViewModel.class);
         this.usuarioViewModel = vmp.get(UsuarioViewModel.class);
     }
-
-    /*private void showToolbar(){
-        Toolbar toolbar = this.findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(R.drawable.ic_volver_atras);
-        toolbar.setNavigationOnClickListener(v -> {
-            this.finish();
-            this.overridePendingTransition(R.anim.rigth_in, R.anim.rigth_out);
-        });
-    }*/
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void inicializar() {

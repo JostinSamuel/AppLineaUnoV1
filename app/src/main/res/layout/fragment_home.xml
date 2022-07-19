@@ -56,21 +56,12 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:fontFamily="@font/san_francisco"
-                                android:text="20.00"
+                                android:text="00.00"
+                                android:paddingTop="10dp"
                                 android:textAlignment="center"
                                 android:textColor="#646C6D"
                                 android:textSize="50sp" />
 
-                            <TextView
-                                android:id="@+id/tvTypeCard"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/san_francisco"
-                                android:text="Adulto"
-                                android:textAlignment="textEnd"
-                                android:textColor="@color/black"
-                                android:textSize="20sp"
-                                android:textStyle="bold" />
                         </LinearLayout>
                     </LinearLayout>
                 </RelativeLayout>

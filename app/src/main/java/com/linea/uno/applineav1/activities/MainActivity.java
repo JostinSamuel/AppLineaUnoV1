@@ -3,29 +3,16 @@ package com.linea.uno.applineav1.activities;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.Menu;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.navigation.NavigationView;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.gson.reflect.TypeToken;
 import com.linea.uno.applineav1.R;
-import com.linea.uno.applineav1.databinding.ActivityMainBinding;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -37,7 +24,6 @@ import com.linea.uno.applineav1.entities.Usuario;
 import com.linea.uno.applineav1.utils.DateSerializer;
 import com.linea.uno.applineav1.utils.TimeSerializer;
 import com.linea.uno.applineav1.viewmodel.UsuarioViewModel;
-
 import java.sql.Date;
 import java.sql.Time;
 import cn.pedant.SweetAlert.SweetAlertDialog;
@@ -70,10 +56,8 @@ public class MainActivity extends AppCompatActivity {
         String pref = preferences.getString("UsuarioJson","");
         if (!pref.equals("")){
             ToastOk("Sesión activa");
-
-            //preferences.edit().remove("tokenCard").apply();
-            //preferences.edit().remove("email").apply();
-
+            preferences.edit().remove("tokenCard").apply();
+            preferences.edit().remove("email").apply();
             this.startActivity(new Intent(this,InicioActivity.class));
             this.overridePendingTransition(R.anim.left_in, R.anim.left_out);
         }
@@ -94,8 +78,8 @@ public class MainActivity extends AppCompatActivity {
         /* inicializando SharedPreferences*/
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = preferences.edit();
-        //editor.remove("cardToken");
-        //editor.apply();
+        editor.remove("cardToken");
+        editor.apply();
 
         /*Normal Authentication*/
         btnIniciarSesion.setOnClickListener(v -> {

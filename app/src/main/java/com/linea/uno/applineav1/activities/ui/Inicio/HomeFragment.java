@@ -35,6 +35,7 @@ public class HomeFragment extends Fragment {
     private MovimientoViewModel movimientoViewModel;
     private Button btnRecargarSaldo;
     SharedPreferences pref;
+    TextView tvSaldoDisponible;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         pref = PreferenceManager.getDefaultSharedPreferences(getActivity());
@@ -60,11 +61,12 @@ public class HomeFragment extends Fragment {
 
     private void inicializar(View view) {
         ViewModelProvider modelProvider = new ViewModelProvider(this);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1, GridLayoutManager.HORIZONTAL, false);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1, GridLayoutManager.VERTICAL, false);
         rvhistorialMovimientos = view.findViewById(R.id.rvHistorialMovimientos);
         rvhistorialMovimientos.setLayoutManager(gridLayoutManager);
         movimientoViewModel = modelProvider.get(MovimientoViewModel.class);
         btnRecargarSaldo = view.findViewById(R.id.btnRecargarSaldo);
+        tvSaldoDisponible = view.findViewById(R.id.tvSaldoDisponible);
     }
 
     private void cargarDatos() {
@@ -75,6 +77,11 @@ public class HomeFragment extends Fragment {
             movimientoAdapter.updateItemsMovimientos(response.getBody());
             Log.e("response.getBody {}",response.getBody().toString());
         });
+
+        movimientoViewModel.getMontoTotal(email).observe(getViewLifecycleOwner(), response->{
+            tvSaldoDisponible.setText(response.toString());
+        });
+
     }
 
     private void inicializarAdapter() {

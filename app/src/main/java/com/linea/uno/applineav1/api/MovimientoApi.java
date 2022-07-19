@@ -19,4 +19,7 @@ public interface MovimientoApi {
 
     @POST(base+"/recargarSaldo")
     Call<GenericResponse<GenerarMovimientoDTO>> recargarSaldo(@Body GenerarMovimientoDTO dto);
+
+    @GET(base+"/montoTotal/{email}")
+    Call<Double> getMontoTotal(@Path("email") String email);
 }
