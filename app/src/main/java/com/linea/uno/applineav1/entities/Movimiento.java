@@ -1,8 +1,6 @@
 package com.linea.uno.applineav1.entities;
 
 import java.sql.Date;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 
 public class Movimiento {
     private Integer id_movimiento;

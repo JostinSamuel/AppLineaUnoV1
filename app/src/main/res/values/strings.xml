@@ -13,6 +13,17 @@
     <string name="menu_perfil">Mi perfil</string>
     <string name="cancelar"><u>Cancelar</u></string>
     <string name="ultimos_movimientos"><u>Últimos movimientos</u></string>
+    <string name="ingrese_n_mero_de_tarjeta">Ingrese número de tarjeta</string>
+    <string name="ingrese_correo_electr_nico">Ingrese correo electrónico</string>
+    <string name="ccv">CCV</string>
+    <string name="year">Year</string>
+    <string name="month">Month</string>
+    <string name="registrar_tarjeta">Registrar Tarjeta</string>
+    <string name="cancelar_Card">Cancelar</string>
+    <string name="registrar_tarjeta_btn">Registrar tarjeta</string>
+    <string name="recargar_saldo">Recargar Saldo</string>
+    <string name="recargar">Recargar</string>
+    <string name="ingrese_monto_a_recargar">Ingrese monto a recargar</string>
     <string-array name="tipoDoc">
         <item>DNI</item>
     </string-array>

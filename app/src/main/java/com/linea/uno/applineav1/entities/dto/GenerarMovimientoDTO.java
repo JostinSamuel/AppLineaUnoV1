@@ -10,7 +10,7 @@ public class GenerarMovimientoDTO {
 
     private Movimiento movimiento;
 
-    private ArrayList<Detalle> detalle;
+    private Detalle detalle;
 
     private Cliente cliente;
 
@@ -18,22 +18,21 @@ public class GenerarMovimientoDTO {
         return movimiento;
     }
 
-
-    public GenerarMovimientoDTO(Movimiento movimiento, ArrayList<Detalle> detalle, Cliente cliente) {
-        this.movimiento = movimiento;
-        this.detalle = detalle;
-        this.cliente = cliente;
+    public GenerarMovimientoDTO() {
+        this.movimiento = new Movimiento();
+        this.detalle = new Detalle();
+        this.cliente = new Cliente();
     }
 
     public void setMovimiento(Movimiento movimiento) {
         this.movimiento = movimiento;
     }
 
-    public ArrayList<Detalle> getDetalle() {
+    public Detalle getDetalle() {
         return detalle;
     }
 
-    public void setDetalle(ArrayList<Detalle> detalle) {
+    public void setDetalle(Detalle detalle) {
         this.detalle = detalle;
     }
 

@@ -45,11 +45,10 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:fontFamily="@font/san_francisco"
-                                android:text="Metro de Lima"
-                                android:textAlignment="textStart"
-                                android:textColor="@color/green_200"
-                                android:textSize="40sp"
-                                android:textStyle="bold" />
+                                android:text="Saldo disponible"
+                                android:textAlignment="center"
+                                android:textColor="#F44336"
+                                android:textSize="40sp"/>
 
                             <TextView
                                 android:id="@+id/tvSaldoDisponible"

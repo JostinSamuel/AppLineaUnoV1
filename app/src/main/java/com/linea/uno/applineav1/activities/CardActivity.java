@@ -13,8 +13,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.textfield.TextInputLayout;
 import com.linea.uno.applineav1.R;
 import com.linea.uno.applineav1.entities.Culqi.Card;
 import com.linea.uno.applineav1.entities.Culqi.Token;
@@ -26,8 +29,11 @@ public class CardActivity extends AppCompatActivity {
 
     Validation validation;
     ProgressDialog progress;
-    TextView txtcardnumber, txtcvv, txtmonth, txtyear, txtemail, kind_card, result;
+    EditText txtcardnumber, txtcvv, txtmonth, txtyear, txtemail;
+    TextView kind_card, result;
     Button btnPay;
+    TextInputLayout txtInputCardNumber, txtInputMonth, txtInputYear, txtInputCCV, txtInputEmailUser;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,22 +44,19 @@ public class CardActivity extends AppCompatActivity {
         progress.setMessage("Validando informacion de la tarjeta");
         progress.setCancelable(false);
         progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-
-        txtcardnumber = (TextView) findViewById(R.id.txt_cardnumber);
-
-        txtcvv = (TextView) findViewById(R.id.txt_cvv);
-
-        txtmonth = (TextView) findViewById(R.id.txt_month);
-
-        txtyear = (TextView) findViewById(R.id.txt_year);
-
-        txtemail = (TextView) findViewById(R.id.txt_email);
-
-        kind_card = (TextView) findViewById(R.id.kind_card);
-
-        result = (TextView) findViewById(R.id.token_id);
-
-        btnPay = (Button) findViewById(R.id.btn_pay);
+        txtcardnumber = findViewById(R.id.txt_cardnumber);
+        txtcvv = findViewById(R.id.txt_cvv);
+        txtmonth = findViewById(R.id.txt_month);
+        txtyear = findViewById(R.id.txt_year);
+        txtemail = findViewById(R.id.txt_email);
+        kind_card = findViewById(R.id.kind_card);
+        result = findViewById(R.id.token_id);
+        btnPay =findViewById(R.id.btn_registerCard);
+        txtInputEmailUser = findViewById(R.id.txtInputEmailUser);
+        txtInputCardNumber = findViewById(R.id.txtInputCardNumber);
+        txtInputMonth = findViewById(R.id.txtInputMonth);
+        txtInputYear = findViewById(R.id.txtInputYear);
+        txtInputCCV = findViewById(R.id.txtInputCCV);
 
         txtcvv.setEnabled(false);
 
@@ -73,6 +76,7 @@ public class CardActivity extends AppCompatActivity {
                 if(s.length() == 0){
                     txtcvv.setEnabled(true);
                 }
+                txtInputCardNumber.setHint("");
             }
 
             @Override
@@ -92,9 +96,11 @@ public class CardActivity extends AppCompatActivity {
                 if(cvv > 0) {
                     txtcvv.setFilters(new InputFilter[]{new InputFilter.LengthFilter(cvv)});
                     txtcvv.setEnabled(true);
+                    txtInputCCV.setHint("");
                 } else {
                     txtcvv.setEnabled(false);
                     txtcvv.setText("");
+                    txtInputCCV.setHint("");
                 }
             }
         });
@@ -113,8 +119,10 @@ public class CardActivity extends AppCompatActivity {
                 String text = txtyear.getText().toString();
                 if(validation.year(text)){
                     txtyear.setBackgroundResource(R.drawable.border_error);
+                    txtInputYear.setHint("");
                 } else {
                     txtyear.setBackgroundResource(R.drawable.border_sucess);
+                    txtInputYear.setHint("");
                 }
             }
         });
@@ -132,9 +140,11 @@ public class CardActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
                 String text = txtmonth.getText().toString();
                 if(validation.month(text)){
-                    txtmonth.setBackgroundResource(R.drawable.border_error);
+                    txtmonth.setBackgroundResource(R.drawable.border_sucess);
+                    txtInputMonth.setHint("");
                 } else {
                     txtmonth.setBackgroundResource(R.drawable.border_sucess);
+                    txtInputMonth.setHint("");
                 }
             }
         });
@@ -157,6 +167,7 @@ public class CardActivity extends AppCompatActivity {
                             SharedPreferences preferencias = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                             SharedPreferences.Editor editor=preferencias.edit();
                             editor.putString("tokenCard", tk);
+                            editor.putString("emailRecargar", txtemail.getText().toString());
                             editor.apply();
                             System.out.println("Token card activity: -->"+ tk);
                         } catch (Exception ex){
@@ -182,7 +193,7 @@ public class CardActivity extends AppCompatActivity {
     }
 
     public void pasarActivity(){
-        startActivity(new Intent(CardActivity.this,InicioActivity.class));
+        startActivity(new Intent(CardActivity.this,RecargarSaldo.class));
         overridePendingTransition(R.anim.left_in, R.anim.left_out);
     }
 

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -79,7 +80,15 @@ public class HomeFragment extends Fragment {
         });
 
         movimientoViewModel.getMontoTotal(email).observe(getViewLifecycleOwner(), response->{
-            tvSaldoDisponible.setText(response.toString());
+            if (response>0){
+                tvSaldoDisponible.setText(response.toString());
+            }/*else if(response==0.0){
+                tvSaldoDisponible.setText("0.0");
+                Toast.makeText(getActivity(), "No se encontró tarjeta",Toast.LENGTH_SHORT).show();
+            }else{
+                tvSaldoDisponible.setText("0.0");
+                Toast.makeText(getActivity(), "No se encontró tarjeta",Toast.LENGTH_SHORT).show();
+            }*/
         });
 
     }

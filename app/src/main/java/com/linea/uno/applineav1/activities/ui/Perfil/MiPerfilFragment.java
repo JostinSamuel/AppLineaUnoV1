@@ -119,11 +119,9 @@ public class MiPerfilFragment extends Fragment {
         editor.remove("UsuarioJson");
         editor.remove("nombretoInicio");
         editor.apply();
-        /*
         editor.remove("email");
         editor.remove("cardToken");
-        this.finish();
-        */
+        getActivity().finish();
         Intent intent = new Intent(getActivity(), MainActivity.class);
         startActivity(intent);
         getActivity().overridePendingTransition(R.anim.left_in, R.anim.left_out);

@@ -23,6 +23,7 @@ public class ConfigApi {
     private static UsuarioApi usuarioApi;
     private static ClienteApi clienteApi;
     private static MovimientoApi movimientoApi;
+    private static TarjetaApi tarjetaApi;
 
     static {
         initClient();
@@ -85,5 +86,13 @@ public class ConfigApi {
         }
 
         return movimientoApi;
+    }
+
+    public static TarjetaApi getTarjetaApi() {
+        if (tarjetaApi == null) {
+            tarjetaApi = retrofit.create(TarjetaApi.class);
+        }
+
+        return tarjetaApi;
     }
 }

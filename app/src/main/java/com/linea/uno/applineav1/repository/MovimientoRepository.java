@@ -48,13 +48,13 @@ public class MovimientoRepository {
         return mld;
     }
 
-    //GUARDAR PEDIDO CON DETALLES
     public LiveData<GenericResponse<GenerarMovimientoDTO>> save(GenerarMovimientoDTO dto) {
         MutableLiveData<GenericResponse<GenerarMovimientoDTO>> data = new MutableLiveData<>();
         movimientoApi.recargarSaldo(dto).enqueue(new Callback<GenericResponse<GenerarMovimientoDTO>>() {
             @Override
             public void onResponse(Call<GenericResponse<GenerarMovimientoDTO>> call, Response<GenericResponse<GenerarMovimientoDTO>> response) {
                 if (response.isSuccessful()) {
+                    System.out.println(response.body());
                     data.setValue(response.body());
                 }
             }
