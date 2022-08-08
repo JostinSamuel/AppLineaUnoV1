@@ -12,6 +12,8 @@ import com.linea.uno.applineav1.utils.GenericResponse;
 
 import java.util.List;
 
+import okhttp3.ResponseBody;
+
 public class MovimientoViewModel extends AndroidViewModel {
 
     private final MovimientoRepository repository;
@@ -32,5 +34,9 @@ public class MovimientoViewModel extends AndroidViewModel {
 
     public LiveData<Double> getMontoTotal(String email){
         return this.repository.getMontoTotal(email);
+    }
+
+    public LiveData<GenericResponse<ResponseBody>> exportInvoice(){
+        return repository.exportInvoice();
     }
 }

@@ -10,6 +10,10 @@ public class Tarjeta {
     private Boolean estado;
     private Cliente cliente;
 
+    public Tarjeta(Integer id_tarjeta) {
+        this.id_tarjeta = id_tarjeta;
+    }
+
     public Integer getId_tarjeta() {
         return id_tarjeta;
     }

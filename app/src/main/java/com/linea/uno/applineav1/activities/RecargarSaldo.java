@@ -20,8 +20,6 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.linea.uno.applineav1.R;
-import com.linea.uno.applineav1.entities.Detalle;
-import com.linea.uno.applineav1.entities.Movimiento;
 import com.linea.uno.applineav1.entities.Tarjeta;
 import com.linea.uno.applineav1.entities.Usuario;
 import com.linea.uno.applineav1.entities.dto.GenerarMovimientoDTO;
@@ -32,8 +30,6 @@ import com.linea.uno.applineav1.viewmodel.TarjetaViewModel;
 
 import java.sql.Date;
 import java.sql.Time;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
@@ -100,49 +96,43 @@ public class RecargarSaldo extends AppCompatActivity {
         System.out.println("EMAIL: --> "+email);
         if (token != null){
 
-            Detalle detalle = new Detalle();
             GenerarMovimientoDTO dto = new GenerarMovimientoDTO();
 
             java.util.Date date = new java.util.Date();
             System.out.println(new Date(date.getTime()));
 
-            this.tarjetaViewModel.getTarjetaUsuario(idC).observe(this, response -> {
+            /*this.tarjetaViewModel.getTarjetaUsuario(idC).observe(this, response -> {
                 if (response.getRpta()==1){
-                    Log.e("tarjeta id : ",response.getBody().toString());
+                    Log.e("tarjeta id : ", String.valueOf(response.getBody()));
+
                 }
                 else{
-                    detalle.setId_tarjeta(new Tarjeta());
+                    Log.e("Error: ", "Falló al obtener tarjeta del usuario");
                 }
-                //detalle
-                detalle.setId_tarjeta(response.getBody());
-                detalle.setFecha(new Date(date.getTime()));
-                detalle.setId_movimiento(dto.getMovimiento());
-                detalle.setMonto_total(Double.parseDouble(txtmontoAcargar.getText().toString()));
+            });*/
 
-                //movimiento
-                dto.getMovimiento().setFecha(new Date(date.getTime()));
-                dto.getMovimiento().setMonto_total(Double.parseDouble(txtmontoAcargar.getText().toString()));
-                dto.getMovimiento().setToken(token);
-                dto.getMovimiento().setEmail(email);
-                dto.getCliente().setId(idC);
-                dto.setDetalle(detalle);
+            //movimiento
+            dto.getMovimiento().setTarjeta(new Tarjeta(1));
+            dto.getMovimiento().setFecha(new Date(date.getTime()));
+            dto.getMovimiento().setMonto_total(Double.parseDouble(txtmontoAcargar.getText().toString()));
+            dto.getMovimiento().setToken(token);
+            dto.getMovimiento().setEmail(email);
+            dto.getCliente().setId(idC);
 
-                this.movimientoViewModel.recargarSaldo(dto).observe(this, rpta -> {
-                    if(rpta.getRpta()==1){
-                        successMessage("Recarga exitosa");
-                        System.out.println("Response: "+rpta.getBody().getDetalle()+"\nTodo: "+rpta);
-                        txtmontoAcargar.setText("");
-                    }else{
-                        System.out.println("Response: "+rpta.getBody().getDetalle()+"\nTodo: "+rpta);
-                        toastIncorrecto("Ups! , No se pudo recargar");
-                    }
-                    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-                    SharedPreferences.Editor editor = preferences.edit();
-                    editor.remove("cardToken");
-                    editor.apply();
-                });
+            this.movimientoViewModel.recargarSaldo(dto).observe(this, rpta -> {
+                if(rpta.getRpta()==1){
+                    successMessage("Recarga exitosa");
+                    System.out.println("Response: "+rpta.getBody()+"\nTodo: "+rpta);
+                    txtmontoAcargar.setText("");
+                }else{
+                    System.out.println("Response: "+rpta.getBody()+"\nTodo: "+rpta);
+                    toastIncorrecto("Ups! , No se pudo recargar");
+                }
+                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.remove("cardToken");
+                editor.apply();
             });
-
 
         }else{
             startActivity(new Intent(RecargarSaldo.this,CardActivity.class));

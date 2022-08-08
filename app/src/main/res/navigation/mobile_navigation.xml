@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/nav_movimientos"
-        android:name="com.linea.uno.applineav1.activities.ui.Movimientos.GalleryFragment"
+        android:name="com.linea.uno.applineav1.activities.ui.Movimientos.MovimientoFragment"
         android:label="@string/menu_movimientos"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_movimiento" />
 
     <fragment
         android:id="@+id/nav_perfil"

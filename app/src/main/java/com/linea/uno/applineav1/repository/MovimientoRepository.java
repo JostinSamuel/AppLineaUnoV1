@@ -9,7 +9,11 @@ import com.linea.uno.applineav1.api.MovimientoApi;
 import com.linea.uno.applineav1.entities.Movimiento;
 import com.linea.uno.applineav1.entities.dto.GenerarMovimientoDTO;
 import com.linea.uno.applineav1.utils.GenericResponse;
+import com.linea.uno.applineav1.utils.Globals;
+
 import java.util.List;
+
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -54,7 +58,7 @@ public class MovimientoRepository {
             @Override
             public void onResponse(Call<GenericResponse<GenerarMovimientoDTO>> call, Response<GenericResponse<GenerarMovimientoDTO>> response) {
                 if (response.isSuccessful()) {
-                    System.out.println(response.body());
+                    System.out.println("call: "+response.body());
                     data.setValue(response.body());
                 }
             }
@@ -80,6 +84,29 @@ public class MovimientoRepository {
             @Override
             public void onFailure(Call<Double> call, Throwable t) {
                 System.out.println("Error al mostrar monto total: " + t.getMessage());
+            }
+        });
+        return mld;
+    }
+
+    /**
+     * Este método devuelve el reporte PDF de las recargas realizadas
+     */
+    public LiveData<GenericResponse<ResponseBody>> exportInvoice(){
+        MutableLiveData<GenericResponse<ResponseBody>> mld = new MutableLiveData<>();
+        this.movimientoApi.exportInvoice().enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if(response.isSuccessful()){
+                    mld.setValue(new GenericResponse<>(Globals.TIPO_DATA, Globals.RPTA_OK, Globals.OPERACION_CORRECTA, response.body()));
+                    Log.e("exportInvoice", "file recived");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("exportInvoice", t.getMessage());
+                t.printStackTrace();
             }
         });
         return mld;

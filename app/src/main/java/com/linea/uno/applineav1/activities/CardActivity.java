@@ -31,7 +31,7 @@ public class CardActivity extends AppCompatActivity {
     ProgressDialog progress;
     EditText txtcardnumber, txtcvv, txtmonth, txtyear, txtemail;
     TextView kind_card, result;
-    Button btnPay;
+    Button btnPay, btnCancelar;
     TextInputLayout txtInputCardNumber, txtInputMonth, txtInputYear, txtInputCCV, txtInputEmailUser;
 
 
@@ -57,6 +57,14 @@ public class CardActivity extends AppCompatActivity {
         txtInputMonth = findViewById(R.id.txtInputMonth);
         txtInputYear = findViewById(R.id.txtInputYear);
         txtInputCCV = findViewById(R.id.txtInputCCV);
+        btnCancelar = findViewById(R.id.btnCancelarTarjeta);
+
+        btnCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pasarActivityIncorrecto();
+            }
+        });
 
         txtcvv.setEnabled(false);
 
@@ -156,7 +164,7 @@ public class CardActivity extends AppCompatActivity {
 
                 Card card = new Card(txtcardnumber.getText().toString(), txtcvv.getText().toString(), 9, 2025, txtemail.getText().toString());
 
-                Token token = new Token("sk_test_6033e299086641e3");
+                Token token = new Token("pk_test_d281b339732dd744");
 
                 token.createToken(getApplicationContext(), card, new TokenCallback() {
                     @Override
@@ -173,7 +181,7 @@ public class CardActivity extends AppCompatActivity {
                         } catch (Exception ex){
                             progress.hide();
                             toastIncorrecto("Error al registrar tarjeta");
-                            pasarActivity();
+                            pasarActivityIncorrecto();
                         }
 
                         progress.hide();
@@ -185,7 +193,7 @@ public class CardActivity extends AppCompatActivity {
                     public void onError(Exception error) {
                         progress.hide();
                         toastIncorrecto("Error al registrar tarjeta");
-                        pasarActivity();
+                        pasarActivityIncorrecto();
                     }
                 });
             }
@@ -194,6 +202,11 @@ public class CardActivity extends AppCompatActivity {
 
     public void pasarActivity(){
         startActivity(new Intent(CardActivity.this,RecargarSaldo.class));
+        overridePendingTransition(R.anim.left_in, R.anim.left_out);
+    }
+
+    public void pasarActivityIncorrecto(){
+        startActivity(new Intent(CardActivity.this,InicioActivity.class));
         overridePendingTransition(R.anim.left_in, R.anim.left_out);
     }
 
