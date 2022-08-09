@@ -57,7 +57,7 @@ public class MovimientoAdapter extends RecyclerView.Adapter<MovimientoAdapter.Vi
             TextView tvmontoRecarga = itemView.findViewById(R.id.tvmontoRecarga);
             TextView tvFechaMovimiento = itemView.findViewById(R.id.tvFechaMovimiento);
 
-            tvmontoRecarga.setText(movimiento.getMonto_total().toString());
+            tvmontoRecarga.setText("Recarga S/. "+movimiento.getMonto_total().toString());
             tvFechaMovimiento.setText(movimiento.getFecha().toString());
             Log.e("montoTotal: ",tvmontoRecarga.getText().toString()+"/"+movimiento.getMonto_total().toString());
             Log.e("fechaMovimiento: ",tvFechaMovimiento.getText().toString()+"/"+movimiento.getFecha().toString());

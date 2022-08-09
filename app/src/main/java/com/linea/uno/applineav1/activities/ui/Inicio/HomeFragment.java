@@ -81,14 +81,8 @@ public class HomeFragment extends Fragment {
 
         movimientoViewModel.getMontoTotal(email).observe(getViewLifecycleOwner(), response->{
             if (response>0){
-                tvSaldoDisponible.setText(response.toString());
-            }/*else if(response==0.0){
-                tvSaldoDisponible.setText("0.0");
-                Toast.makeText(getActivity(), "No se encontró tarjeta",Toast.LENGTH_SHORT).show();
-            }else{
-                tvSaldoDisponible.setText("0.0");
-                Toast.makeText(getActivity(), "No se encontró tarjeta",Toast.LENGTH_SHORT).show();
-            }*/
+                tvSaldoDisponible.setText("S/. "+response.toString());
+            }
         });
 
     }

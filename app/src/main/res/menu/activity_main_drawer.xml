@@ -10,7 +10,7 @@
             android:title="@string/menu_inicio" />
         <item
             android:id="@+id/nav_movimientos"
-            android:icon="@drawable/ic_documento"
+            android:icon="@drawable/ic_baseline_attach_money_24"
             android:title="@string/menu_movimientos" />
         <item
             android:id="@+id/nav_perfil"
